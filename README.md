@@ -5,4 +5,4 @@ This the repository for the GSMST's Webmaster event for 2020 SLC! Here, all vers
 can be observed as the website develops over time. This repository can also serve as a point of reference for any future teams of the
 GSMST Webmaster event.
 
-Thank you for reading!
+Thank you for visiting!
