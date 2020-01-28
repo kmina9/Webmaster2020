@@ -14,6 +14,27 @@ function revert(x){
   x.style = "width:200px;height:250px;"
 }
 
+
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  tablinks = document.getElementsByClassName("tablink");
+
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+
+  document.getElementById(pageName).style.display = "block";
+
+  elmnt.style.backgroundColor = color;
+}
+
+
 function scrollToTop() {
   //from https://gist.github.com/ricardozea/abb9f98a19f6d04a0269
   //very cool!
@@ -25,19 +46,7 @@ function scrollToTop() {
     } else clearTimeout(scrollAnimation);
 }
 
-function openPage(pageName,elmnt,color) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
-  }
-  document.getElementById(pageName).style.display = "block";
-  elmnt.style.backgroundColor = color;
-}
+document.getElementById("defaultOpen").click();
 
 </script>
 <style>
@@ -49,13 +58,13 @@ function openPage(pageName,elmnt,color) {
   .tablink{
     background-color: #0080ff;
     color: white;
-    float: right;
+    float: left;
     font-size: 25px;
-    width: 33%;
+    width: 25%;
     padding: 10px 10px;
     border: none;
   }
-  
+
   .tabcontent {
   color: white;
   display: none;
@@ -125,41 +134,62 @@ function openPage(pageName,elmnt,color) {
 <body>
   
   <div class="tab">
-    <button class="tablink" onclick="openPage(event, 'page1', 'blue')">About</button>
-    <button class="tablink" onclick="openPage(event, 'page1', 'blue')">GSMST TSA</button>
-    <button class="tablink" onclick="openPage(event, 'page1', 'blue')">Design Brief</button>
+    <button class="tablink" onclick="openPage('home', this, 'blue')" id = "defaultOpen">Home</button>
+    <button class="tablink" onclick="openPage('about', this, 'blue')">About</button>
+    <button class="tablink" onclick="openPage('TSA', this, 'blue')">GSMST TSA</button>
+    <button class="tablink" onclick="openPage('Design', this, 'blue')">Design Brief</button>
+
   </div>
 
-  <div id = "page1" class = "tabcontent"> 
-    <h3>bruh</h3>
+  <div id = "home" class = "tabcontent"> 
+    <h1> GSMST's STEM Program </h1>
+    <br> 
+    <img onmouseover = "doThing(this)" onmouseout="revert(this)" src="https://upload.wikimedia.org/wikipedia/en/6/6f/Seal_of_GSMST.png" alt="GSMST student" style="width:200px;height:250px;">
+    <br>
+    <button class="button" style="vertical-align:middle"><span>I'm beautiful</span></button>
+
+    
+  
+    <br>
+    <a href="www.gsmst.org">Visit our actual website! (www.gsmst.org)</a>
+    <h2> Our Engineering & Technology Programs </h2>
+    <p> we have very cool engineering programs, like science fair and physeng wow! </p>
+
+    <h2> Our TSA chapter! </h2>
+    <p> our tsa chapter </p>
+
+    <h2> Career Programs </h2>
+    <p> sce/jfe idk stuff like that </p>
+    
+
+    <br>
+    <br>
+    <br>
+    <body id="top">
+    <button class="tablink" onclick="scrollToTop()">go up yaga</button>
   </div>
 
-   <!--Outline of Website-->
-  <h1> GSMST's STEM Program </h1>
-  <br> 
-  <img onmouseover = "doThing(this)" onmouseout="revert(this)" src="https://upload.wikimedia.org/wikipedia/en/6/6f/Seal_of_GSMST.png" alt="GSMST student" style="width:200px;height:250px;">
-  <br>
-  <button class="button" style="vertical-align:middle"><span>I'm beautiful</span></button>
+  <div id="about" class="tabcontent">
+    <h1>About</h1>
+    <p>bruh!</p> 
+  </div>
+
+  <div id="TSA" class="tabcontent">
+    <h1>GSMST TSA</h1>
+    <p>bruh!</p> 
+  </div>
+
+  <div id="Design" class="tabcontent">
+    <h1>Design Brief</h1>
+    <p>bruh!</p> 
+  </div>
 
   
- 
-  <br>
-  <a href="www.gsmst.org">Visit our actual website! (www.gsmst.org)</a>
-  <h2> Our Engineering & Technology Programs </h2>
-  <p> we have very cool engineering programs, like science fair and physeng wow! </p>
 
-  <h2> Our TSA chapter! </h2>
-  <p> our tsa chapter </p>
 
-  <h2> Career Programs </h2>
-  <p> sce/jfe idk stuff like that </p>
+   
+  <!--Outline of Website-->
   
-
-  <br>
-  <br>
-  <br>
-  <body id="top">
-  <button class="tablink" onclick="scrollToTop()">go up yaga</button>
 
 
 </body>
